@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 
 Route::get('/about', function () {
     return view('about');
@@ -27,6 +24,13 @@ Route::get('/events', function () {
     return view('events');
 });
 
+Route::get('/',[
+	'uses' => 'RaceController@index',
+	'as' => '/',
+	]);
+
+
 
 Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');

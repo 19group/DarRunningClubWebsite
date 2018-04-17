@@ -24,11 +24,10 @@
     <!-- Float links to the right. Hide them on small screens -->
     <div class="links w3-hide-small">
       <a class="w3-bar-item w3-button"></a>
-      <a href="{{ url('/home') }}" class="w3-bar-item w3-button">Home</a>
+      <a href="{{ url('/') }}" class="w3-bar-item w3-button">Home</a>
       <a href="{{ url('/about') }}" class="w3-bar-item w3-button">About Us</a>
-      <a href="{{ url('/events') }}" class="w3-bar-item w3-button">Race & Events</a>
-      <a href="#contact" class="w3-bar-item text-danger w3-button">Clubs</a>
-      <a href="#contact" class="w3-bar-item w3-button">Join</a>
+      <a href="{{ url('/events') }}" class="w3-bar-item w3-button">Races</a>
+      <a href="{{ url('/events') }}" class="w3-bar-item w3-button">News & Events</a>
       <a href="#contact" class="w3-bar-item w3-button">Contact Us</a>
     </div>
   </div>

@@ -17,6 +17,7 @@
 
 <body>
 
+
 <!-- Navbar (sit on top) -->
 <div class="" id="menu">
   <div class="w3-bar w3-white w3-wide w3-padding w3-card">
@@ -24,11 +25,10 @@
     <!-- Float links to the right. Hide them on small screens -->
     <div class="links w3-hide-small">
       <a class="w3-bar-item w3-button"></a>
-      <a href="{{ url('/home') }}" class="w3-bar-item w3-button">Home</a>
+      <a href="{{ url('/') }}" class="w3-bar-item w3-button">Home</a>
       <a href="{{ url('/about') }}" class="w3-bar-item w3-button">About Us</a>
-      <a href="{{ url('/events') }}" class="w3-bar-item w3-button">Race & Events</a>
-      <a href="#contact" class="w3-bar-item text-danger w3-button">Clubs</a>
-      <a href="#contact" class="w3-bar-item w3-button">Join</a>
+      <a href="{{ url('/') }}" class="w3-bar-item w3-button">Races</a>
+      <a href="{{ url('/events') }}" class="w3-bar-item w3-button">News & Events</a>
       <a href="#contact" class="w3-bar-item w3-button">Contact Us</a>
     </div>
   </div>
@@ -49,17 +49,31 @@
   <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
 
     <div id="marathon_list" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-md-offset-2" style="opacity: 1;">
-        <?php
-          echo"<table class='table table-responsive table-dark table-hover text-center'>";
-          echo"<tr><th class='text-center'> Our Race Calender </th></tr>";
-          for ($i=0; $i < 4; $i++) { 
-             echo("<tr><td> <a href=''> Marathon".$i."</a></td></tr>");
-           } 
-           echo "</table>";
-        ?>
+          <center><h4>Our Annual Races</h4></center>
+        <div class="panel-group col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1" id="accordion">
+
+          @foreach($races as $race)
+
+
+          <div class="panel panel-default">
+            <div id="race_title" class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle thee_title" data-toggle="collapse" data-parent="#accordion" href="#{{ $race->id }}">
+                  {{ $race->title}}
+                </a>
+              </h4>
+            </div>
+            <div id="{{ $race->id }}" class="panel-collapse collapse">
+              <div class="panel-body">
+               {{ $race->description}}
+              </div>
+            </div>
+          </div>
+
+          @endforeach
+
+        </div>
       </div>
-    </div>
 
 
     <!-- Indicators -->
@@ -148,16 +162,15 @@
         Running is an exercise that improves a persons mental and physical state. Jogging is considered one of the most popular forms of weight loss.
       </span><br><br><br>
       <div class="col-md-4 text-center">
-        <span class="bg-nos">5</span>
+        <span class="bg-nos">{{ $achievements->experience }}</span>
         <p>YEARS OF<br>EXPERIENCE</p>
-
       </div>
       <div class="col-md-4 text-center">
-        <span class="bg-nos">7</span>
+        <span class="bg-nos">{{ $achievements->marathons }}</span>
         <p>ANNUAL<br>MARATHONS</p>
       </div>
       <div class="col-md-4 text-center">
-        <span class="bg-nos">21</span>
+        <span class="bg-nos">{{ $achievements->medals }}</span>
         <p>WON<br>MEDALS</p>
       </div>
     </div><br><br>
@@ -178,64 +191,44 @@
      <div class="col-md-6 col-md-offset-3 text-light text-center">
       <br>
       <br>
-      <h3>Runs & Clubs</h3>
+      <h3>Runs</h3>
       <br>
     </div>
 
       <div class="col-md-12 col-xs-12">
       <div class="tabs-left">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#a" data-toggle="tab"><span>Dar Running club</span></a></li>
-          <li><a href="#b" data-toggle="tab"><span>Dasani</span></a></li>
-          <li><a href="#c" data-toggle="tab"><span class=""></span></a></li>
-          <li><a href="#d" data-toggle="tab"><span class=""></span></a></li>
-          <li><a href="#e" data-toggle="tab"><span class=" "></span></a></li>
-          <li><a href="#f" data-toggle="tab"><span class=""></span></a></li>
+
+          @foreach( $runs as $run )
+
+            <li class="<?php if($run->id=="1"){ echo 'active'; } ?>"><a href="#{{ $run->title }}" data-toggle="tab"><span>{{ $run->title }}</span></a></li>
+
+          @endforeach
         </ul>
 
         <div class="tab-content">
-          <div class="col-md-8 border-left tab-pane active" id="a">
+
+          @foreach ($runs as $info)
+
+          <div class="col-md-8 border-left tab-pane <?php if($info->id=="1"){ echo 'active'; } ?>" id="{{ $info->title }}">
               <table class="table text-light table-borderless">
                 <tr>
-                  <td class="text-right">Area : </td><td class="text-info text-center">Posta</td>
+                  <td class="text-right">Area : </td><td class="text-info text-center">{{ $info->title }}</td>
                 </tr>
                 <tr>
-                  <td class="text-right">Members : </td><td class="text-info text-center">86</td>
+                  <td class="text-right">Members : </td><td class="text-info text-center">{{ $info->members }}</td>
                 </tr>
                 <tr>
-                  <td class="text-right">Schedules : </td><td class="time text-info text-center"> Monday 15hrs <br> Tuesday 16hrs <br>
-                                Wednesday 16hrs <br> Thursday 16hrs <br>
-                                Friday 16hrs <br> Saturay 17hrs </td>
+                  <td class="text-right">Schedules : </td><td class="time text-info text-center">{!! nl2br($info->schedules) !!}</td>
+                </tr>
+                <tr>
+                  <td class="text-right">Contact : </td><td class="text-info text-center">{{ ($info->contact) }}</td>
                 </tr>
               </table>
           </div>
-          <div class="border-left col-md-8 tab-pane" id="b">
-            <table class="table text-light table-borderless">
-                <tr>
-                  <td class="text-right">Area : </td><td class="text-info text-center">Mlimani</td>
-                </tr>
-                <tr>
-                  <td class="text-right">Members : </td><td class="text-info text-center">62</td>
-                </tr>
-                <tr>
-                  <td class="text-right">Schedules : </td><td class="time text-info text-center"> Monday 16hrs <br> Tuesday 17hrs <br>
-                                Wednesday 17hrs <br> Thursday 17hrs <br>
-                                Friday 17hrs <br> Saturay 17hrs </td>
-                </tr>
-              </table>
-          </div>
-          <div class="tab-pane" id="c">
-            
-          </div>
-          <div class="tab-pane" id="d">
-            
-          </div>
-          <div class="tab-pane" id="e">
-            
-          </div>
-          <div class="tab-pane" id="f">
-            
-          </div>
+
+          @endforeach
+          
         </div><!-- /tab-content -->
       </div><!-- /tabbable -->
 
@@ -491,9 +484,9 @@
   <div class="col-md-6">
     <div class="col-md-6 pull-right">
     <h4 class="text-light text-center">Contact Information</h4><br>
-      <p><i class="glyphicon glyphicon-map-marker text-light"> Makumbusho, Dar es Salaam, Tanzania</i></p><br>
-      <p><i class="glyphicon glyphicon-phone-alt text-light"> 077777777777</i></p><br>
-      <p><i class="glyphicon glyphicon-send text-light"> email@domain.com</i></p>
+      <p><i class="glyphicon glyphicon-map-marker text-light"></i> Makumbusho, Dar es Salaam, Tanzania</p><br>
+      <p><i class="glyphicon glyphicon-phone-alt text-light"></i></p> 077777777777<br>
+      <p><i class="glyphicon glyphicon-send text-light"></i> email@domain.com</p>
     </div>
   </div>
 

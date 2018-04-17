@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends('index')
+
+@section('menu')
 
 	<div class="" id="menu">
 	  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
@@ -20,5 +17,4 @@
 	  </div>
 	</div>
 
-</body>
-</html>
+@endsection

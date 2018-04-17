@@ -56,6 +56,23 @@ body{
    }
 }
 
+.panel{
+  border-color: #333;
+}
+
+#race_title{
+  background-color: #333;
+  color: #dbdbdb;
+}
+
+#race_title a:hover, a:after{
+  text-decoration: none;
+}
+
+.panel-body{
+  color: #afafaf;
+  font-size: 16px;
+}
 
 
 .badge {
