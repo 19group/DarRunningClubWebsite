@@ -1,9 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+<head>
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
+</head>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <br>
+            <br>
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 

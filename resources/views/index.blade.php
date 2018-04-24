@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+
 <!DOCTYPE html>
 <html>
 <title>Dar Running Website</title>
@@ -8,6 +11,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
 
 <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+
 <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
 <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
@@ -18,21 +22,8 @@
 <body>
 
 
-<!-- Navbar (sit on top) -->
-<div class="" id="menu">
-  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <a href="#home" class="text-muted w3-bar-item w3-button"><b>Logo</b></a>
-    <!-- Float links to the right. Hide them on small screens -->
-    <div class="links w3-hide-small">
-      <a class="w3-bar-item w3-button"></a>
-      <a href="{{ url('/') }}" class="w3-bar-item w3-button">Home</a>
-      <a href="{{ url('/about') }}" class="w3-bar-item w3-button">About Us</a>
-      <a href="{{ url('/') }}" class="w3-bar-item w3-button">Races</a>
-      <a href="{{ url('/events') }}" class="w3-bar-item w3-button">News & Events</a>
-      <a href="#contact" class="w3-bar-item w3-button">Contact Us</a>
-    </div>
-  </div>
-</div>
+
+
 
 <!-- Header -->
 <!--<header class="w3-display-container w3-content w3-wide" style="max-width:100%;" id="home">
@@ -197,11 +188,11 @@
 
       <div class="col-md-12 col-xs-12">
       <div class="tabs-left">
-        <ul class="nav nav-tabs">
+        <ul class="runs-title list-style nav-tabs">
 
           @foreach( $runs as $run )
 
-            <li class="<?php if($run->id=="1"){ echo 'active'; } ?>"><a href="#{{ $run->title }}" data-toggle="tab"><span>{{ $run->title }}</span></a></li>
+            <li class="<?php if($run->id=="1"){ echo 'active'; } ?> p-"><a href="#{{ $run->title }}" class="p-3 row" data-toggle="tab"><span>{{ $run->title }}</span></a></li>
 
           @endforeach
         </ul>
@@ -355,7 +346,7 @@
     </div>
   </div>
 
-  <div class="col-md-6 pull-right">
+  <div class="col-md-6">
     <br>
     <br>
     <br>
@@ -375,10 +366,14 @@
       <br>
       <br>
       <button class="btn btn-primary">Read more</button>
+      <br>
+      <br>
     </div>
   </div>
+</div>
 
 
+  <div class="container-fluid">
   <div class="col-md-12 text-light" style="background-color: #333333">
     <div class="col-md-3">
       <br>
@@ -425,52 +420,63 @@
    <div class="col-md-4 col-md-offset-4 text-center">
     <h2>Testimonies</h2>
     <div class="col-md-12">
-      <div class="col-xs-2 col-sm-2 col-md-2 col-md-offset-5 col-xs-offset-5 col-sm-offset-5"><hr></div><br>
+      <div class="col-xs-2 col-sm-2 col-md-2 col-md-offset-5 col-xs-offset-5 col-sm-offset-5"><hr></div>
     </div>
   </div>
 
-  <div class="col-md-12" style="margin-bottom: 10px">
-    <div class="col-md-4">
-      <img class="pull-right img-responsive rounded-circle" src="{{ URL::asset('img/coachsm.png') }}" alt="">
-    </div>
+  <div class="col-md-12">
+    <div class="container-fluid">
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <img class="pull-view col-md-4 col-sm-4 img-responsive rounded-circle" src="{{ URL::asset('img/coachsm.png') }}" alt="">
+      </div>
 
     <br>
-    <div class="col-md-6" style="background-color: #333333; padding: 15px">
+    <div class="col-md-8   col-sm-12 col-xs-12" style="background-color: #333333; padding: 15px">
       <span class="text-light" style="font-size: 17px;">
         Ius eu ancillae evertitur vulputate. Nonumy evertitur deseruisse has at. Pro impetus delectus postulant eu, nemore pertinacia et eam. An vim vitae everti, ex duo antiopam expetenda. Debitis fierent suscipiantur id sit, ei suas malorum eruditi qui. Iudicabit rationibus constituam eum ad, et quo postulant tincidunt.
         <br>
       </span>
+    </div>
     </div>
   </div>
   <br>
 
-   <div class="col-md-12" style="margin-bottom: 10px">
-    <div class="col-md-4">
-      <img class="pull-right img-responsive rounded-circle" src="{{ URL::asset('img/coachsm.png') }}" alt="">
-    </div>
+  <div class="col-md-12">
+    <div class="container-fluid">
+      <div class="col-md-4 col-sm-6 col-xs-12"><br>
+        <img class="pull-view col-md-4 col-sm-4 img-responsive rounded-circle" src="{{ URL::asset('img/coachsm.png') }}" alt="">
+      </div>
 
     <br>
-    <div class="col-md-6" style="background-color: #333333; padding: 15px">
+    <div class="col-md-8 col-sm-12 col-xs-12" style="background-color: #333333; padding: 15px">
       <span class="text-light" style="font-size: 17px;">
         Ius eu ancillae evertitur vulputate. Nonumy evertitur deseruisse has at. Pro impetus delectus postulant eu, nemore pertinacia et eam. An vim vitae everti, ex duo antiopam expetenda. Debitis fierent suscipiantur id sit, ei suas malorum eruditi qui. Iudicabit rationibus constituam eum ad, et quo postulant tincidunt.
         <br>
       </span>
     </div>
-  </div>
-
-   <div class="col-md-12">
-    <div class="col-md-4">
-      <img class="pull-right img-responsive rounded-circle" src="{{ URL::asset('img/coachsm.png') }}" alt="">
     </div>
 
+  </div>
+
+  <div class="col-md-12">
+    <div class="container-fluid">
+      <div class="col-md-4 col-sm-6 col-xs-12"><br>
+        <img class="pull-view col-md-4 col-sm-4 img-responsive rounded-circle" src="{{ URL::asset('img/coachsm.png') }}" alt="">
+      </div>
+
     <br>
-    <div class="col-md-6" style="background-color: #333333; padding: 15px">
+    <div class="col-md-8 col-sm-12 col-xs-12" style="background-color: #333333; padding: 15px">
       <span class="text-light" style="font-size: 17px;">
         Ius eu ancillae evertitur vulputate. Nonumy evertitur deseruisse has at. Pro impetus delectus postulant eu, nemore pertinacia et eam. An vim vitae everti, ex duo antiopam expetenda. Debitis fierent suscipiantur id sit, ei suas malorum eruditi qui. Iudicabit rationibus constituam eum ad, et quo postulant tincidunt.
         <br>
       </span>
     </div>
+    </div>
   </div>
+
+   
+
+   
   </div>
 </div>
 
@@ -479,23 +485,23 @@
   <br>
   <br>
   <br>
-<div class="container-fluid bg-dark">
+<div class="container-fluid bg-dark pb-3">
   <br>
-  <div class="col-md-6">
+  <div class="col-md-6 border-right border-black">
     <div class="col-md-6 pull-right">
     <h4 class="text-light text-center">Contact Information</h4><br>
-      <p><i class="glyphicon glyphicon-map-marker text-light"></i> Makumbusho, Dar es Salaam, Tanzania</p><br>
-      <p><i class="glyphicon glyphicon-phone-alt text-light"></i></p> 077777777777<br>
-      <p><i class="glyphicon glyphicon-send text-light"></i> email@domain.com</p>
+      <p class="text-muted"><i class="glyphicon glyphicon-map-marker history_text"></i> &nbsp;&nbsp;Makumbusho, Dar es Salaam, Tanzania</p><br>
+      <p class="text-muted"><i class="glyphicon glyphicon-phone-alt history_text"></i> &nbsp;&nbsp;0777 897 456</p><br>
+      <p class="text-muted"><i class="glyphicon glyphicon-send history_text"></i> &nbsp;&nbsp;email@domain.com</p>
     </div>
   </div>
 
   <div class="col-md-6">
     <div class="col-md-6 text-center" style="font-size: 18px">
     <h4 class="text-light text-center">Useful Links</h4><br>
-      <a href="">About Us</a><br>
-      <a href="">Register</a><br>
-      <a href="">Events</a><br>
+      <a href="{{ url('/about') }}">About Us</a><br>
+      <a href="{{ url('/races') }}">Races</a><br>
+      <a href="{{ url('/DRC-blog') }}">News & Events</a><br>
     </div>
   </div>
 </div>
@@ -600,5 +606,7 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 
 </script>
 
+
 </body>
 </html>
+@endsection

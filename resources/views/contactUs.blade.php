@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <!DOCTYPE html>
 <html>
 <title>Dar Running Website</title>
@@ -17,22 +19,6 @@
 
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="" id="menu">
-  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <a href="#home" class="text-muted w3-bar-item w3-button"><b>Logo</b></a>
-    <!-- Float links to the right. Hide them on small screens -->
-    <div class="links w3-hide-small">
-      <a class="w3-bar-item w3-button"></a>
-      <a href="{{ url('/') }}" class="w3-bar-item w3-button">Home</a>
-      <a href="{{ url('/about') }}" class="w3-bar-item w3-button">About Us</a>
-      <a href="{{ url('/events') }}" class="w3-bar-item w3-button">Races</a>
-      <a href="{{ url('/events') }}" class="w3-bar-item w3-button">News & Events</a>
-      <a href="#contact" class="w3-bar-item w3-button">Contact Us</a>
-    </div>
-  </div>
-</div>
-
 <!-- Header -->
 <!--<header class="w3-display-container w3-content w3-wide" style="max-width:100%;" id="home">
   <img class="w3-image" src="https://i2-prod.dublinlive.ie/news/dublin-news/article12695699.ece/ALTERNATES/s615/CFI6.jpg" alt="Architecture" width="100%" height="800">
@@ -44,21 +30,7 @@
 
 
 
-<section class="main-slider3" style="background-image: url({{ URL::asset('img/darRunning4.png') }});">
-  <br>
-  <center><h1 class="jumbotron"><b>The Annul Kilimarathon</b></h1>
-    <button class="btn btn-lg btn-info"> Join / Register </button>
-    <br>
-    <a href=""><i class="glyphicon glyphicon-triangle-bottom " style="font-size: 40px"></i></a>
-  </center>
-</section><!-- /.main-slider -->
-<section class="main-slider3" style="background-image: url({{ URL::asset('img/darRunning1.png') }});">
-   <br>
-  <center><h1 class="jumbotron text-light"><b>The Annul Dasani Marathon</b></h1>
-    <button class="btn btn-lg btn-info"> Join / Register </button>
-    <br>
-    <a href=""><i class="glyphicon glyphicon-triangle-bottom " style="font-size: 40px"></i></a>
-  </center>
+<section class="main-slider2" style="background-image: url({{ URL::asset('img/darRunning3.png') }});">
 </section><!-- /.main-slider -->
 
 
@@ -75,6 +47,127 @@
 
 <div id="club_history" class=" text-light container-fluid bg-dark_grey">
 
+  <div class="row">
+    <div id="" class="col-md-3 contact_box">
+      <br>
+      <br>
+      <center>
+        <i class="glyphicon glyphicon-map-marker text-muted" style="font-size: 60px"></i>
+      </center>
+        <br>
+        <div class="col-md-12">
+          <div class="col-md-4 col-md-offset-4 text-center">
+            <h3 class="contact_title">Address</h3>
+          </div>
+          <div class="col-md-2 col-md-offset-5">
+            <hr>
+          </div>
+        </div>
+        <p class="text-center text-muted">
+          Makumbusho, Dar es Salaam Tanzania
+        </p>
+        <br>
+        <br>
+    </div>
+
+    <div class="col-md-3 contact_box">
+      <br>
+      <br>
+      <center>
+        <i class="glyphicon glyphicon-phone-alt text-muted" style="font-size: 60px"></i>
+      </center>
+        <br>
+        <div class="col-md-12">
+          <div class="col-md-4 col-md-offset-4 text-center">
+            <h3 class="contact_title">Telephone</h3>
+          </div>
+          <div class="col-md-2 col-md-offset-5">
+            <hr>
+          </div>
+        </div>
+        <p class="text-center text-muted">
+          0777 777 777
+        </p>
+        <br>
+        <br>
+    </div>
+
+    <div class="col-md-3 contact_box">
+      <br>
+      <br>
+      <center>
+        <i class="glyphicon glyphicon-envelope text-muted" style="font-size: 60px"></i>
+      </center>
+        <br>
+        <div class="col-md-12">
+          <div class="col-md-4 col-md-offset-4 text-center">
+            <h3 class="contact_title">Email</h3>
+          </div>
+          <div class="col-md-2 col-md-offset-5">
+            <hr>
+          </div>
+        </div>
+        <p class="text-center text-muted">
+          info@darrunners.com
+        </p>
+        <br>
+        <br>
+    </div>
+
+    <div class="col-md-3 contact_box">
+      <br>
+      <br>
+      <center>
+        <i class="glyphicon glyphicon-time text-muted" style="font-size: 60px"></i>
+      </center>
+        <br>
+        <div class="col-md-12">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <h3 class="contact_title">Running Hours</h3>
+          </div>
+          <div class="col-md-2 col-md-offset-5">
+            <hr>
+          </div>
+        </div>
+        <p class="text-center text-muted">
+          Mon-Sun: 5pm to 7pm
+        </p>
+        <br>
+        <br>
+    </div>
+
+    <div class="col-md-6">
+      <br>
+      <h3 class="text-center">Where to find us</h3>
+      
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.555683178484!2d39.27771835013623!3d-6.823765795044027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b00bd0fb58d%3A0xe45fb38a817f73a4!2sJakaya+Kikwete+Youth+Park.!5e0!3m2!1sen!2stz!4v1523879738177" width="100%" height="550" frameborder="0" style="border:0" allowfullscreen></iframe>
+      
+    </div>
+    <div class="col-md-5 text-center" style="padding-top: 15%;font-size: 16px">
+      Lorem ipsum dolor sit amet, prima lucilius sensibus ex sit. Mundi antiopam no mel, at mel illud nominavi consectetuer, illum assentior cum at. Eruditi intellegebat in vix, est partem posidonium ea. Ius eu ancillae evertitur vulputate. Nonumy evertitur deseruisse has at.
+
+      Pro impetus delectus postulant eu, nemore pertinacia et eam. An vim vitae everti, ex duo antiopam expetenda. Debitis fierent suscipiantur id sit, ei suas malorum eruditi qui. Iudicabit rationibus constituam eum ad, et quo postulant tincidunt. Et justo ullum patrioque per.
+      <br><br>
+    </div>
+
+  </div>
+  <div id="social" class="row bg-dark" style="padding-top: 5%">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="col-md-4 col-sm-4 col-xs-4">
+        <center><a href=""><img class="rounded-circle" src="{{ URL::asset('img/media/facebookwhite.png')}}" width="40" height=""></a></center>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-4">
+        <center><a href=""><img class="rounded-circle" src="{{ URL::asset('img/media/instagramwhite.png')}}" width="40" height=""></a></center>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-4">
+       <center><a href=""><img class="" src="{{ URL::asset('img/media/tweeterwhite.png')}}" width="40" height=""></a></center>
+        <br>
+        <br>
+      </div>
+      
+    </div>
+
+  </div>
 
 </div>
 
@@ -171,3 +264,5 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 
 </body>
 </html>
+
+@endsection

@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <!DOCTYPE html>
 <html>
 <title>Dar Running Website</title>
@@ -16,22 +18,6 @@
 
 
 <body>
-
-<!-- Navbar (sit on top) -->
-<div class="" id="menu">
-  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <a href="#home" class="text-muted w3-bar-item w3-button"><b>Logo</b></a>
-    <!-- Float links to the right. Hide them on small screens -->
-    <div class="links w3-hide-small">
-      <a class="w3-bar-item w3-button"></a>
-      <a href="{{ url('/') }}" class="w3-bar-item w3-button">Home</a>
-      <a href="{{ url('/about') }}" class="w3-bar-item w3-button">About Us</a>
-      <a href="{{ url('/') }}" class="w3-bar-item w3-button">Races</a>
-      <a href="{{ url('/events') }}" class="w3-bar-item w3-button">News & Events</a>
-      <a href="#contact" class="w3-bar-item w3-button">Contact Us</a>
-    </div>
-  </div>
-</div>
 
 <!-- Header -->
 <!--<header class="w3-display-container w3-content w3-wide" style="max-width:100%;" id="home">
@@ -86,7 +72,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="">
     <div id="" class="col-md-3 contact_box">
       <br>
       <br>
@@ -186,6 +172,7 @@
       Lorem ipsum dolor sit amet, prima lucilius sensibus ex sit. Mundi antiopam no mel, at mel illud nominavi consectetuer, illum assentior cum at. Eruditi intellegebat in vix, est partem posidonium ea. Ius eu ancillae evertitur vulputate. Nonumy evertitur deseruisse has at.
 
       Pro impetus delectus postulant eu, nemore pertinacia et eam. An vim vitae everti, ex duo antiopam expetenda. Debitis fierent suscipiantur id sit, ei suas malorum eruditi qui. Iudicabit rationibus constituam eum ad, et quo postulant tincidunt. Et justo ullum patrioque per.
+      <br><br>
     </div>
 
   </div>
@@ -302,3 +289,5 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 
 </body>
 </html>
+
+@endsection

@@ -20,4 +20,15 @@ class RaceController extends Controller
 
     	return view('index')->with('races',$races)->with('runs',$runs)->with('achievements',$achievements);
     }
+
+     public function marathons()
+    {
+    	$races = Races::all();
+    	$achievements = Achievements::first();
+    	$runs = Runs::all();
+
+    	//dd($runs);
+
+    	return view('races')->with('races',$races)->with('runs',$runs)->with('achievements',$achievements);
+    }
 }

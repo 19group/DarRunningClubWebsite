@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>DRC</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -19,13 +19,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
+        <nav class="bar navbar navbar-expand-md navbar-light navbar-laravel">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <h4>DRC</h4>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -33,8 +34,22 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                    <ul class="navbar-nav text-muted mr-auto">
+                        <li><a class="navbar-brand" href="{{ url('/') }}">
+                            <h5>Home</h5>
+                        </a></li>
+                        <li><a class="navbar-brand" href="{{ url('/about') }}">
+                            <h5>About Us</h5>
+                        </a></li>
+                        <li><a class="navbar-brand" href="{{ url('/races') }}">
+                            <h5>Races</h5>
+                        </a></li>
+                        <li><a class="navbar-brand" href="{{ url('/DRC-blog') }}">
+                            <h5>News & Events</h5>
+                        </a></li>
+                        <li><a class="navbar-brand" href="{{ url('/contactus') }}">
+                            <h5>Contact</h5>
+                        </a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -46,7 +61,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }} <span class=""></span>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -67,7 +82,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     </div>
