@@ -15,6 +15,7 @@
 <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
 <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
+<link rel="stylesheet" href="{{ URL::asset('css/validate.css') }}" />
 <script type="text/javascript" src="{{ URL::asset('js/index.js') }}"></script>
 
 
@@ -50,7 +51,7 @@
             <div id="race_title" class="panel-heading">
               <h4 class="panel-title">
                 <a class="accordion-toggle thee_title" data-toggle="collapse" data-parent="#accordion" href="#{{ $race->id }}">
-                  {{ $race->title}}
+                  {!! nl2br($race->title) !!}
                 </a>
               </h4>
             </div>
@@ -84,7 +85,7 @@
         <img src="{{ URL::asset('img/darRunning4.png') }}" alt="">
         <div class="carousel-caption xs_hide">
           <h1>Dar Runners Club</h1>
-          <h4>Our shoes have more miles than your car.</h4>
+          <h3>Our shoes have more miles than your car.</h3>
         </div><!-- /.carousel-caption -->
       </div><!-- /Slide1 -->
 
@@ -93,7 +94,7 @@
         <img src="{{ URL::asset('img/darRunning2.png') }}" alt="">
         <div class="carousel-caption xs_hide">
           <h1>Dar Runners Club</h1>
-          <h4>We don’t run to add years to our lives. We run to add life to our years 7 days without running makes one weak.</h4>
+          <h3>We don’t run to add years to our lives. We run to add life to our years 7 days without running makes one weak.</h3>
         </div><!-- /.carousel-caption -->
       </div><!-- /Slide2 -->
 
@@ -102,7 +103,7 @@
         <img src="{{ URL::asset('img/darRunning3.png') }}" alt="">
         <div class="carousel-caption xs_hide">
           <h1>Dar Runners Club</h1>
-          <h4>Our sport is other sports’ punishment.</h4>
+          <h3>Our sport is other sports’ punishment.</h3>
         </div><!-- /.carousel-caption -->
       </div><!-- /Slide3 -->
 
@@ -111,7 +112,7 @@
         <img src="{{ URL::asset('img/darRunning1.png') }}" alt="">
         <div class="carousel-caption xs_hide">
           <h1>Dar Runners Club</h1>
-          <h4>Running won’t kill you, you’ll pass out first.</h4>
+          <h3>Running won’t kill you, you’ll pass out first.</h3>
         </div><!-- /.carousel-caption -->
       </div><!-- /Slide4 -->
 
@@ -143,22 +144,28 @@
   -->
 <div class="row">
   <div class="col-md-6">
-    <div class="col-md-8 col-md-offset-2 text-center" style="height:;">
+    <div class="col-md-8 col-md-offset-2 text-center">
       <br>
       <br>
       <h3>Achievements</h3><hr>
       <br>
-      <div class="container-fluid text-center">
-      <span class="avg_font_size">
+      <span class="avg_font_size history_text">
         Running is an exercise that improves a persons mental and physical state. Jogging is considered one of the most popular forms of weight loss.
       </span><br><br><br>
+      <div class="container-fluid text-center">
+         <div class="col-md-4 text-center col-md-offset-4">
+        <span class="bg-nos">{{ $achievements->marathons }}</span>
+        <p>ANNUAL<br>MARATHONS</p>
+      </div>
+      </div>
+      <div class="container-fluid text-center">
       <div class="col-md-4 text-center">
         <span class="bg-nos">{{ $achievements->experience }}</span>
         <p>YEARS OF<br>EXPERIENCE</p>
       </div>
       <div class="col-md-4 text-center">
-        <span class="bg-nos">{{ $achievements->marathons }}</span>
-        <p>ANNUAL<br>MARATHONS</p>
+        <span class="bg-nos">{{ $achievements->podium }}</span>
+        <p>PODIUM<br>FINISHES</p>
       </div>
       <div class="col-md-4 text-center">
         <span class="bg-nos">{{ $achievements->medals }}</span>
@@ -178,7 +185,7 @@
   -->
 
 
-  <div class="col-md-6 bg-dark" style="height: 80vh">
+  <div class="col-md-6 bg-dark">
      <div class="col-md-6 col-md-offset-3 text-light text-center">
       <br>
       <br>
@@ -188,11 +195,11 @@
 
       <div class="col-md-12 col-xs-12">
       <div class="tabs-left">
-        <ul class="runs-title list-style nav-tabs">
+        <ul class="runs-title col-sm-4 col-xs-6 list-style nav-tabs">
 
           @foreach( $runs as $run )
 
-            <li class="<?php if($run->id=="1"){ echo 'active'; } ?> p-"><a href="#{{ $run->title }}" class="p-3 row" data-toggle="tab"><span>{{ $run->title }}</span></a></li>
+            <li class="<?php if($run->id=="1"){ echo 'active'; } ?>"><a href="#{{ $run->slug }}" class="p-3 row" data-toggle="tab"><span>{{ $run->title }}</span></a></li>
 
           @endforeach
         </ul>
@@ -201,19 +208,19 @@
 
           @foreach ($runs as $info)
 
-          <div class="col-md-8 border-left tab-pane <?php if($info->id=="1"){ echo 'active'; } ?>" id="{{ $info->title }}">
-              <table class="table text-light table-borderless">
+          <div style="min-height: 45vh;" class="col-md-8 col-sm-8 col-xs-6 border-left tab-pane <?php if($info->id=="1"){ echo 'active'; } ?>" id="{{ $info->slug }}">
+              <table class="table container-fluid table-responsive text-light table-borderless">
                 <tr>
-                  <td class="text-right">Area : </td><td class="text-info text-center">{{ $info->title }}</td>
+                  <td class="text-right">Route : </td><td class="text-info text-">{{ $info->title }}</td>
                 </tr>
                 <tr>
-                  <td class="text-right">Members : </td><td class="text-info text-center">{{ $info->members }}</td>
+                  <td class="text-right">Description: </td><td class="text-info text-">{{ $info->description }}</td>
                 </tr>
                 <tr>
-                  <td class="text-right">Schedules : </td><td class="time text-info text-center">{!! nl2br($info->schedules) !!}</td>
+                  <td class="text-right">Schedules : </td><td class="time text-info text-">{!! nl2br($info->schedules) !!}</td>
                 </tr>
                 <tr>
-                  <td class="text-right">Contact : </td><td class="text-info text-center">{{ ($info->contact) }}</td>
+                  <td class="text-right">Contact : </td><td class="text-info text-">{{ ($info->contact) }}</td>
                 </tr>
               </table>
           </div>
@@ -238,38 +245,69 @@
   -->
 
 <div id="club_history" class=" text-light container-fluid bg-dark_grey">
-  <div class="col-md-4 col-md-offset-4 text-center"><br>
-    <h3>History of Our Club</h3>
+  <div class="col-md-4 col-xs-6 col-sm-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-4 text-center"><br>
+    <h3>Our Club</h3>
 
     <div class="col-md-12">
-      <div class="col-xs-2 col-sm-2 col-md-2 col-md-offset-5 col-xs-offset-5 col-sm-offset-5"><hr></div><br>
+      <div class="col-xs-2 col-sm-2 col-md-4 col-md-offset-4 col-xs-offset-5 col-sm-offset-5"><hr></div><br>
     </div>
 
   </div>
 
-  <div class="col-md-12 history_text">
-    <div class="col-md-6">
-      <br>
-     <h4>Where we came from</h4>
+  <div class="col-md-12 col-sm-12 col-xs-12 history_text">
+    <div class="col-md-12 text-center">
      <span class="text-secondary">
-        Lorem ipsum dolor sit amet, prima lucilius sensibus ex sit. Mundi antiopam no mel, at mel illud nominavi consectetuer, illum assentior cum at. Eruditi intellegebat in vix, est partem posidonium ea. Ius eu ancillae evertitur vulputate. Nonumy evertitur deseruisse has at.
-
-        Pro impetus delectus postulant eu, nemore pertinacia et eam. An vim vitae everti, ex duo antiopam expetenda. Debitis fierent suscipiantur id sit, ei suas malorum eruditi qui. Iudicabit rationibus constituam eum ad, et quo postulant tincidunt. Et justo ullum patrioque per.
-
-        No sit elitr dolorem, integre aliquam conclusionemque mel ei. Qui et modo periculis voluptatum, vis admodum accumsan scaevola cu. Velit sonet necessitatibus id nec, ea dico labitur vim, cu dico fierent usu. Meis iusto aliquam ex his, ne sea lorem pertinax, populo debitis ne vel.
+      <br>
+        The Dar Running Club (#teamDRC) is a means for all to come together and share a love of running. It is low pressure and flexible, with members showing up when they have the time and often planning runs of our own. We have many levels of runners, from those who have never run before to marathoners and Ultra Marathoners. We have all age groups with diverse backgrounds. Pooling all of #teamDRC runners, we guarantee that there'll always be someone with whom you can run. If you come, you will be entering an environment that inspires running and that will keep you fit. So, whether you are looking to stay in shape, find a team, or just have a relaxing activity, come on out and join us for a run
 
       </span>
     </div>
-     <div class="col-md-6">
+     <div class="col-md-6 col-xs-12 col-sm-6 ">
       <br>
-         <h4>Milestones</h4>
+         <h4>Our Mission</h4><hr>
          <span class="text-secondary">
-            Lorem ipsum dolor sit amet, prima lucilius sensibus ex sit. Mundi antiopam no mel, at mel illud nominavi consectetuer, illum assentior cum at. Eruditi intellegebat in vix, est partem posidonium ea. Ius eu ancillae evertitur vulputate. Nonumy evertitur deseruisse has at.
+           
+            Promote and encourage the sport of running.
+            Promote and encourage the pleasure, exercise and recreation of runners.
+            Promote sociability and friendship among the members of DRC.
+            Manage and conduct running events, training runs, exercises and social meeting for the members of DRC and other runners.
 
-            Pro impetus delectus postulant eu, nemore pertinacia et eam. An vim vitae everti, ex duo antiopam expetenda. Debitis fierent suscipiantur id sit, ei suas malorum eruditi qui. Iudicabit rationibus constituam eum ad, et quo postulant tincidunt. Et justo ullum patrioque per.
+          </span>
+          <br>
+    </div>
+    <div class="col-md-6 col-xs-12 col-sm-6">
+        <br>
+         <h4>Our Vision</h4><hr>
+         <span class="text-secondary">
 
-            No sit elitr dolorem, integre aliquam conclusionemque mel ei. Qui et modo periculis voluptatum, vis admodum accumsan scaevola cu. Velit sonet necessitatibus id nec, ea dico labitur vim, cu dico fierent usu. Meis iusto aliquam ex his, ne sea lorem pertinax, populo debitis ne vel.
+            To enable each individual to reach their full potential, win gold medals, break World Records and for our club to be recognized locally and internationally as a premier athletic/running club.
 
+          </span>
+          <br><br>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 pb-5">
+        <br>
+         <h4 class="">Our Values</h4><hr>
+         <span class="text-secondary">
+            <div class="col-md-6">
+                <h4 class="text-light"><i>Inclusivity</i></h4>
+                Runners of all ages, genders and athletic ability are welcomed to join.
+
+                <h4 class="text-light"><i>Teamwork</i></h4>
+                We believe in bonding with teammates through trainings, social events and other activities that leads to better personal and long lasting friendships.
+
+                <h4 class="text-light"><i>Democracy</i></h4>
+                We each have a voice, every club member’s opinion matters and each member has an equal vote in club elections.
+                
+                
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-light"><i>Flexibility</i></h4>
+                We recognize that everyone has time consuming work and family obligations .DRC will schedule weekly runs to strengthen team dynamics and give a room for productive discussion for the development of our club.
+                
+                <h4 class="text-light"><i>Ambassadors</i></h4>
+                We are proud advocates of Tanzania sports/running. We will represent our beloved country /sport of running with highest level of dignity and sportsmanship.
+            </div>
           </span>
           <br><br><br>
     </div>
@@ -377,37 +415,39 @@
   <div class="col-md-12 text-light" style="background-color: #333333">
     <div class="col-md-3">
       <br>
-      <img class="img-responsive" src="{{ URL::asset('img/coach.jpg') }}" alt="">
-      <h4>Lily Lemon</h4>
-      <span class="text-secondary"><i>Coach</i></span>
+      <img class="img-responsive" src="{{ URL::asset('img/coach-avatar.jpg') }}" alt="">
+      <h4>Goodluck Elvis</h4>
+      <span class="text-secondary"><i>President</i></span>
       <br>
       <br>
       <span>
-        Et justo ullum patrioque per. No sit elitr dolorem, integre aliquam conclusionemque mel ei.
+        Athletics Enthusiast.Passionate about developing talents, staging athletic events and an experienced ultra-marathoner.Personal best time is 1hr 27mins in a half marathon.
+      </span>
+        <br>
+        <br>
+    </div>
+
+    <div class="col-md-3 col-md-offset-1">
+      <br>
+      <img class="img-responsive" src="{{ URL::asset('img/coach-avatar.jpg') }}" alt="">
+      <h4>Eric Khawa</h4>
+      <span class="text-secondary"><i>Secretary</i></span>
+      <br>
+      <br>
+      <span>
+        Very strong organizational skills. He is a 360 sportsman with strong knowledge on nutrition.See attached picture.
       </span>
     </div>
 
     <div class="col-md-3 col-md-offset-1">
       <br>
-      <img class="img-responsive" src="{{ URL::asset('img/coach.jpg') }}" alt="">
-      <h4>Lily Lemon</h4>
+      <img class="img-responsive" src="{{ URL::asset('img/coach-avatar.jpg') }}" alt="">
+      <h4>Emmanuel Marwa</h4>
       <span class="text-secondary"><i>Coach</i></span>
       <br>
       <br>
       <span>
-        Et justo ullum patrioque per. No sit elitr dolorem, integre aliquam conclusionemque mel ei.
-      </span>
-    </div>
-
-    <div class="col-md-3 col-md-offset-1">
-      <br>
-      <img class="img-responsive" src="{{ URL::asset('img/coach.jpg') }}" alt="">
-      <h4>Lily Lemon</h4>
-      <span class="text-secondary"><i>Coach</i></span>
-      <br>
-      <br>
-      <span>
-        Et justo ullum patrioque per. No sit elitr dolorem, integre aliquam conclusionemque mel ei.
+        Retired Professional Athlete. Very skilled in game plans, aerobics and nutrition.
       </span>
       <br>
       <br>
@@ -415,7 +455,7 @@
 
   </div>
 
-  <div class="col-md-12">
+  <!-- <div class="col-md-12">
     <br>
    <div class="col-md-4 col-md-offset-4 text-center">
     <h2>Testimonies</h2>
@@ -472,7 +512,7 @@
       </span>
     </div>
     </div>
-  </div>
+  </div>-->
 
    
 
@@ -490,9 +530,9 @@
   <div class="col-md-6 border-right border-black">
     <div class="col-md-6 pull-right">
     <h4 class="text-light text-center">Contact Information</h4><br>
-      <p class="text-muted"><i class="glyphicon glyphicon-map-marker history_text"></i> &nbsp;&nbsp;Makumbusho, Dar es Salaam, Tanzania</p><br>
-      <p class="text-muted"><i class="glyphicon glyphicon-phone-alt history_text"></i> &nbsp;&nbsp;0777 897 456</p><br>
-      <p class="text-muted"><i class="glyphicon glyphicon-send history_text"></i> &nbsp;&nbsp;email@domain.com</p>
+      <p class="text-muted"><i class="glyphicon glyphicon-map-marker history_text"></i> &nbsp;&nbsp;Police Area, Oysterbay Dar es Salaam, Tanzania</p><br>
+      <p class="text-muted"><i class="glyphicon glyphicon-phone-alt history_text"></i> &nbsp;&nbsp;+255 756 272 366</p><br>
+      <p class="text-muted"><i class="glyphicon glyphicon-send history_text"></i> &nbsp;&nbsp;darrunningclub@gmail.com</p>
     </div>
   </div>
 

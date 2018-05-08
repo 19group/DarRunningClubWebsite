@@ -13,6 +13,7 @@
 <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
 <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
+<link rel="stylesheet" href="{{ URL::asset('css/validate.css') }}" />
 <script type="text/javascript" src="{{ URL::asset('js/index.js') }}"></script>
 
 
@@ -32,15 +33,7 @@
       <div class="container-fluid history_text">
         <br>
         <h1>Runs & Marathons</h1>
-        <span class="text-secondary text-center">
-        Lorem ipsum dolor sit amet, prima lucilius sensibus ex sit. Mundi antiopam no mel, at mel illud nominavi consectetuer, illum assentior cum at. Eruditi intellegebat in vix, est partem posidonium ea. Ius eu ancillae evertitur vulputate. Nonumy evertitur deseruisse has at.
-
-        Pro impetus delectus postulant eu, nemore pertinacia et eam. An vim vitae everti, ex duo antiopam expetenda. Debitis fierent suscipiantur id sit, ei suas malorum eruditi qui. Iudicabit rationibus constituam eum ad, et quo postulant tincidunt. Et justo ullum patrioque per.
-
-        No sit elitr dolorem, integre aliquam conclusionemque mel ei. Qui et modo periculis voluptatum, vis admodum accumsan scaevola cu.
-        <br>
-        <br>
-        </span>
+       
       </div>
 
         <div class="row" id="accordion">
@@ -60,24 +53,29 @@
                 </a>
               </h4>
             </div>
-            <div id="{{ $race->id }}" class="panel-collapse collapse">
+            <div id="{{ $race->id }}" class="panel-collapse ">
               <div class="panel-body">
                 <div class="col-md-12">
                   <h2 class="text-black">Intro</h2>
-                    {{ $race->description}}
+
+                    <span class="history_text">
+                        The Dar Running Club (#teamDRC) is a means for all to come together and share a love of running. It is low pressure and flexible, with members showing up when they have the time and often planning runs of our own. We have many levels of runners, from those who have never run before to marathoners and Ultra Marathoners.<br> We have all age groups with diverse backgrounds. Pooling all of #teamDRC runners, we guarantee that there'll always be someone with whom you can run. If you come, you will be entering an environment that inspires running and that will keep you fit. So, whether you are looking to stay in shape, find a team, or just have a relaxing activity, come on out and join us for a run.
+                    </span>
                     <br>
                     <br>
 
                   <h2 class="text-black clearfix">Event Details</h2>
-                    {{ $race->description}}
+                    <span class="history_text">
+                      {!! nl2br($race->description) !!}
+                    </span>
                 </div>
                 <div class="col-md-4">
                   <br>
                   <br>
                     <div class="col-md-10 col-md-offset-1">
-                      <img src="{{ URL::asset('img/darRunning.png') }}" width="100%">
+                      <img src="{{ URL::asset('img/runners8.png') }}" width="100%">
                       <p class="img_caption">
-                        The picture caption
+                        Running in packs keeps the motivation alive
                       </p>
                     </div>
                 </div>
@@ -85,9 +83,9 @@
                   <br>
                   <br>
                     <div class="col-md-10 col-md-offset-1">
-                      <img src="{{ URL::asset('img/darRunning.png') }}" width="100%">
+                      <img src="{{ URL::asset('img/runners7.png') }}" width="100%">
                       <p class="img_caption">
-                        The picture caption
+                        Fuel up on the go
                       </p>
                     </div>
                 </div>
@@ -95,9 +93,9 @@
                   <br>
                   <br>
                     <div class="col-md-10 col-md-offset-1">
-                      <img src="{{ URL::asset('img/darRunning.png') }}" width="100%">
+                      <img src="{{ URL::asset('img/marathon1.jpg') }}" width="100%">
                       <p class="img_caption">
-                        The picture caption
+                        The goal is to finish
                       </p>
                     </div>
                 </div>
@@ -106,8 +104,11 @@
                   <br>
                   <br>
                   <h2 class="text-black">An Interactive Route Map</h2>
-                    <iframe width="100%" style="border: none; height:600px;position:relative"
-                    src="https://kili.28east.co.za/"></iframe>
+                    <!--<iframe width="100%" style="border: none; height:600px;position:relative"
+                    src="https://kili.28east.co.za/"></iframe>-->
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d26653.587501195514!2d39.26621980250734!3d-6.76016198193883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x185c4c5e5db078fb%3A0x9fd70c6c44d47d79!2sOyster+Bay%2C+Dar+es+Salaam!3m2!1d-6.7736667!2d39.276505!4m5!1s0x185c4d084147b0e5%3A0xa2c90d938443433e!2sMasaki%2C+Dar+es+Salaam!3m2!1d-6.7473712!2d39.281697099999995!5e0!3m2!1sen!2stz!4v1525765146896" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
                 </div>
 
                 <div class="col-md-12">
@@ -118,7 +119,7 @@
                   <br>
                    <center>
                      <div class="col-md-4">
-                      <div class="col-md-10 col-md-offset-1">
+                      <div class="col-md-8 col-md-offset-2">
                         <img width="100%" src="{{ URL::asset('img/sponsors/grandmalt-logo.png') }}">
                       </div>
                      </div>
@@ -126,7 +127,7 @@
 
                    <center>
                      <div class="col-md-4">
-                      <div class="col-md-10 col-md-offset-1">
+                      <div class="col-md-8 col-md-offset-2">
                         <img width="100%" src="{{ URL::asset('img/sponsors/kilibeer-logo.png') }}">
                       </div>
                      </div>
@@ -134,7 +135,7 @@
 
                    <center>
                      <div class="col-md-4">
-                      <div class="col-md-10 col-md-offset-1">
+                      <div class="col-md-8 col-md-offset-2">
                         <img width="100%" src="{{ URL::asset('img/sponsors/kiliwater-logo.png') }}">
                       </div>
                      </div>

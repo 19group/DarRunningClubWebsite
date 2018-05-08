@@ -13,6 +13,7 @@
 <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
 <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
+<link rel="stylesheet" href="{{ URL::asset('css/validate.css') }}" />
 <script type="text/javascript" src="{{ URL::asset('js/index.js') }}"></script>
 
 
@@ -64,7 +65,7 @@
           </div>
         </div>
         <p class="text-center text-muted">
-          Makumbusho, Dar es Salaam Tanzania
+          Police Area Oysterbay, Dar es Salaam  
         </p>
         <br>
         <br>
@@ -86,7 +87,7 @@
           </div>
         </div>
         <p class="text-center text-muted">
-          0777 777 777
+           +255 756 272 366
         </p>
         <br>
         <br>
@@ -108,7 +109,7 @@
           </div>
         </div>
         <p class="text-center text-muted">
-          info@darrunners.com
+          darrunningclub@gmail.com
         </p>
         <br>
         <br>

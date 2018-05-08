@@ -13,6 +13,7 @@
 <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
 <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
+<link rel="stylesheet" href="{{ URL::asset('css/validate.css') }}" />
 <script type="text/javascript" src="{{ URL::asset('js/index.js') }}"></script>
 
 
@@ -59,11 +60,9 @@
     <div class="col-md-8 col-md-offset-2 text-center">
       <br>
      <span class="text-secondary">
-        Lorem ipsum dolor sit amet, prima lucilius sensibus ex sit. Mundi antiopam no mel, at mel illud nominavi consectetuer, illum assentior cum at. Eruditi intellegebat in vix, est partem posidonium ea. Ius eu ancillae evertitur vulputate. Nonumy evertitur deseruisse has at.
+       The Dar Running Club (#teamDRC) is a means for all to come together and share a love of running. It is low pressure and flexible, with members showing up when they have the time and often planning runs of our own. We have many levels of runners, from those who have never run before to marathoners and Ultra Marathoners.<br><br> We have all age groups with diverse backgrounds. Pooling all of #teamDRC runners, we guarantee that there'll always be someone with whom you can run.
+        If you come, you will be entering an environment that inspires running and that will keep you fit. So, whether you are looking to stay in shape, find a team, or just have a relaxing activity, come on out and join us for a run.
 
-        Pro impetus delectus postulant eu, nemore pertinacia et eam. An vim vitae everti, ex duo antiopam expetenda. Debitis fierent suscipiantur id sit, ei suas malorum eruditi qui. Iudicabit rationibus constituam eum ad, et quo postulant tincidunt. Et justo ullum patrioque per.
-
-        No sit elitr dolorem, integre aliquam conclusionemque mel ei. Qui et modo periculis voluptatum, vis admodum accumsan scaevola cu. Velit sonet necessitatibus id nec, ea dico labitur vim, cu dico fierent usu. Meis iusto aliquam ex his, ne sea lorem pertinax, populo debitis ne vel.
 
       </span>
       <br>
@@ -89,7 +88,7 @@
           </div>
         </div>
         <p class="text-center text-muted">
-          Makumbusho, Dar es Salaam Tanzania
+          Police Area Oysterbay, Dar es Salaam
         </p>
         <br>
         <br>
@@ -111,7 +110,7 @@
           </div>
         </div>
         <p class="text-center text-muted">
-          0777 777 777
+          +255 756 272 366
         </p>
         <br>
         <br>
@@ -133,7 +132,7 @@
           </div>
         </div>
         <p class="text-center text-muted">
-          info@darrunners.com
+          darrunningclub@gmail.com
         </p>
         <br>
         <br>

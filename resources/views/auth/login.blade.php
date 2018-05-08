@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
 <head>
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="{{ URL::asset('css/validate.css') }}" />
 </head>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

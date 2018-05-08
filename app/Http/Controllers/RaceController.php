@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Races;
-use App\Achievements;
+use App\achievements;
 use App\Runs;
 
 class RaceController extends Controller
@@ -13,7 +13,7 @@ class RaceController extends Controller
     public function index()
     {
     	$races = Races::all();
-    	$achievements = Achievements::first();
+    	$achievements = achievements::first();
     	$runs = Runs::all();
 
     	//dd($runs);

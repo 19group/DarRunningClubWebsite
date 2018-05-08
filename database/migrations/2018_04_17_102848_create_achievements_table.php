@@ -18,6 +18,7 @@ class CreateAchievementsTable extends Migration
             $table->integer('experience');
             $table->integer('marathons');
             $table->integer('medals');
+            $table->integer('podium');
             $table->timestamps();
         });
     }

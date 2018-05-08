@@ -39,10 +39,7 @@ Route::get('/',[
 	'as' => '/',
 	]);
 
-Route::post('/{id}/{slug}',[
-	'uses' => 'NewsController@reply',
-	'as' => 'reply',
-	]);
+
 
 
 
@@ -54,15 +51,38 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/edit/homepage', ['as' => 'homepage', 'uses' => 'AdminsController@homepage']);
 
+    Route::get('/posts', ['as' => 'posts', 'uses' => 'AdminsController@showPosts']);
+
 	Route::post('/{exp}',[
 		'uses' => 'AdminsController@updateHomePage',
 		'as' => 'homepageUpdate',
 		]);
 
 	Route::post('/update-runs',[
-		'uses' => 'AdminsController@insertRuns',
+		'uses' => 'AdminsController@updateRuns',
 		'as' => 'runsUpdate',
 		]);
+
+	Route::get('/{$title}',[
+		'uses' => 'AdminsController@delete',
+		'as' => 'destroy-run',
+		]);
+
+
+	Route::post('/{creater}/create/post',[
+		'uses' => 'AdminsController@createPosts',
+		'as' => 'createPost',
+		]);
+
+	Route::post('/admin/registration',[
+		'uses' => 'AdminsController@registerAdmin',
+		'as' => 'reg_admin',
+		]);
+
+	Route::post('/{id}/reply',[
+	'uses' => 'NewsController@reply',
+	'as' => 'reply',
+	]);
     
 });
 

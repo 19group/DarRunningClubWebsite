@@ -16,7 +16,8 @@ class CreateRunsTable extends Migration
         Schema::create('runs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->integer('members');
+            $table->string('slug');
+            $table->string('description');
             $table->string('schedules');
             $table->string('area');
             $table->string('contact');

@@ -19,6 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
+
     
 </head>
 <body>
@@ -26,7 +28,8 @@
         <nav class="bar navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <h4>DRC</h4>
+                    <!--<h4>DRC</h4>-->
+                    <img width="84" src="{{ URL::asset('img/logo.png') }}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -34,30 +37,30 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav text-muted mr-auto">
+                    <ul class="navbar-nav text-muted mr-auto links">
                         <li><a class="navbar-brand" href="{{ url('/') }}">
-                            <h5>Home</h5>
+                            Home
                         </a></li>
                         <li><a class="navbar-brand" href="{{ url('/about') }}">
-                            <h5>About Us</h5>
+                            About Us
                         </a></li>
                         <li><a class="navbar-brand" href="{{ url('/races') }}">
-                            <h5>Races</h5>
+                            Races
                         </a></li>
                         <li><a class="navbar-brand" href="{{ url('/DRC-blog') }}">
-                            <h5>News & Events</h5>
+                            News & Events
                         </a></li>
                         <li><a class="navbar-brand" href="{{ url('/contactus') }}">
-                            <h5>Contact</h5>
+                            Contact
                         </a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto pull-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                            <li><a class="guest nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li><a class="guest nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
